@@ -1,41 +1,4 @@
-let products = [
-    {
-        image: 'images/products/athletic-cotton-socks-6-pairs.jpg',
-        title: 'Black and Gray Athletic Cotton Socks - 6 Pairs',
-        rate: {
-            stars: 'rating-45.png',
-            count: 87
-        },
-        priceCents: 1090
-    },
-    {
-        image: 'images/products/intermediate-composite-basketball.jpg',
-        title: 'Intermediate Size Basketball',
-        rate: {
-            stars: 'rating-40.png',
-            count: 127
-        },
-        priceCents: 2095
-    },
-    {
-        image: 'images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg',
-        title: 'Adults Plain Cotton T-Shirt - 2 Pack',
-        rate: {
-            stars:'rating-35.png',
-            count: 56
-        },
-        priceCents: 799
-    },
-    {
-        image: 'images/products/black-2-slot-toaster.jpg',
-        title: '2 Slot Toaster - Black',
-        rate: {
-          stars: 'rating-50.png',
-          count: 2197
-        },
-        priceCents: 1899
-    }
-]
+
 
 let bodyHtml = '';
 
@@ -53,10 +16,10 @@ products.forEach((element) => {
 
           <div class="product-rating-container">
             <img class = "product-rating-stars"
-              src = "images/ratings/${element.rate.stars}"
+              src = "images/ratings/${element.rating.stars}"
             >
             <div class="product-rating-count link-primary">
-              ${element.rate.count}
+              ${element.rating.count}
             </div>
           </div>
 
