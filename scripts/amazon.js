@@ -11,7 +11,7 @@ products.forEach((element) => {
           </div>
 
           <div class="product-name limit-text-to-2-lines">
-            ${element.title}
+            ${element.name}
           </div>
 
           <div class="product-rating-container">
@@ -49,7 +49,8 @@ products.forEach((element) => {
             Added
           </div>
 
-          <button class="add-to-cart-button button-primary">
+          <button class="add-to-cart-button button-primary js-add-to-cart"
+           data-product-name = "${element.name}">
             Add to Cart
           </button>
         </div>
@@ -59,3 +60,40 @@ products.forEach((element) => {
 
 let gridHtml = document.querySelector('.js-products-grid');
 gridHtml.innerHTML = bodyHtml 
+
+document.querySelectorAll('.js-add-to-cart')
+.forEach((button)=>{
+  const productName = button.dataset.productName;
+  button.addEventListener('click', ()=>{
+    let matchingItem;
+    cart.forEach((item)=>{    
+      if(productName === item.name){
+        matchingItem = item;
+      }
+    })
+    if(matchingItem){
+      matchingItem.qtd += 1
+    } else {
+      cart.push(
+        {
+          name: productName,
+          qtd: 1
+        }
+      )
+    }
+    console.log(cart);
+
+    //cart total items number feature
+    let totalQuantity = 0;
+    cart.forEach((item)=>{
+      totalQuantity += item.qtd
+    })
+    document.querySelector('.js-cart-quantity')
+      .innerText = totalQuantity
+  })
+})
+
+
+
+
+
