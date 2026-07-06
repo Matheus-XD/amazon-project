@@ -1,7 +1,7 @@
-
+import {products} from '../data/products.js'
+import {cart} from '../data/cart.js'
 
 let bodyHtml = '';
-
 products.forEach((element) => {
     const ProductHtml = `
     <div class="product-container">
@@ -27,8 +27,8 @@ products.forEach((element) => {
             ${(element.priceCents/100).toFixed(2)}
           </div>
 
-          <div class="product-quantity-container">
-            <select>
+          <div>
+            <select class="product-quantity-container-${element.id}">
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -50,7 +50,7 @@ products.forEach((element) => {
           </div>
 
           <button class="add-to-cart-button button-primary js-add-to-cart"
-           data-product-name = "${element.name}">
+           data-product-name = "${element.name}" data-product-id = "${element.id}">
             Add to Cart
           </button>
         </div>
@@ -63,7 +63,7 @@ gridHtml.innerHTML = bodyHtml
 
 document.querySelectorAll('.js-add-to-cart')
 .forEach((button)=>{
-  const productName = button.dataset.productName;
+  const productName = button.dataset.productName; 
   button.addEventListener('click', ()=>{
     let matchingItem;
     cart.forEach((item)=>{    
