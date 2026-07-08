@@ -9,7 +9,7 @@ export const cart = [
   },
   {
     id: "54e0eccd-8f36-462b-b68a-8182611d9add",
-    qtd: 5
+    qtd: 5  
   }
 
 ]
