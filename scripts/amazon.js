@@ -1,5 +1,6 @@
 import {products} from '../data/products.js'
 import {cart, addToCart, updateCartQuantity, deleteButton} from '../data/cart.js'
+import { centsToDolar } from '../utils/money.js';
 
 document.querySelector('.js-cart-quantity')
     .innerText = `${updateCartQuantity()}`
@@ -27,7 +28,7 @@ products.forEach((element) => {
           </div>
 
           <div class="product-price">
-            ${(element.priceCents/100).toFixed(2)}
+            ${centsToDolar(element.priceCents)}
           </div>
 
           <div>
