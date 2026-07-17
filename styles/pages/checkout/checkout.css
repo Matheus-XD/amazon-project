@@ -134,6 +134,18 @@
   }
 }
 
+.update-button{
+  font-size: 16px;
+  background-color: transparent;
+  border-style: none;
+}
+
+.delete-button{
+  font-size: 16px;
+  background-color: transparent;
+  border-style: none;
+}
+
 .delivery-options-title {
   font-weight: 700;
   margin-bottom: 10px;

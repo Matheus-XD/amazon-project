@@ -1,9 +1,7 @@
 import {products} from '../data/products.js'
-import {cart, addToCart, updateCartQuantity, deleteButton} from '../data/cart.js'
+import {cart, addToCart, updateCartQuantity, saveToLocalStorage} from '../data/cart.js'
 import { centsToDolar } from '../utils/money.js';
 
-document.querySelector('.js-cart-quantity')
-    .innerText = `${updateCartQuantity()}`
 
 let bodyHtml = '';
 products.forEach((element) => {
@@ -65,13 +63,15 @@ products.forEach((element) => {
 let gridHtml = document.querySelector('.js-products-grid');
 gridHtml.innerHTML = bodyHtml 
 
+updateCartQuantity()
+
 document.querySelectorAll('.js-add-to-cart')
 .forEach((button)=>{
   const productId = button.dataset.productId; 
   button.addEventListener('click', ()=>{
     addToCart(productId)
-    document.querySelector('.js-cart-quantity')
-    .innerText = `${updateCartQuantity()}` 
+    updateCartQuantity()
+    saveToLocalStorage()
   })
 })
 
